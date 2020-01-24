@@ -1,2 +1,2 @@
 # evas-web-storage
-Web Storage (Cookie, Session)
+Web storage module (Cookie, Session)
