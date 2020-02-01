@@ -2,7 +2,7 @@
     "name": "evas-php/evas-web-storage",
     "description": "Web storage module (Cookie, Session)",
     "type": "library",
-    "license": "CC BY 4.0",
+    "license": "CC-BY-4.0",
     "authors": [
         {
             "name": "Egor Vasyakin",
