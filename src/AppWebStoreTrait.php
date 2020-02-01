@@ -17,7 +17,7 @@ if (!defined('EVAS_SESSION_CLASS')) define('EVAS_SESSION_CLASS', Session::class)
 
 /**
  * Расширение класса приложения поддержкой cookie и session.
- * @author Egor Vasyakin <e.vasyakin@itevas.ru>
+ * @author Egor Vasyakin <egor@evas-php.com>
  * @since 1.0
  */
 trait AppWebStoreTrait

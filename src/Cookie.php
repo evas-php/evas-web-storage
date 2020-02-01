@@ -8,7 +8,7 @@ use Evas\Web\Storage\AbstractStorage;
 
 /**
  * Класс для cookie.
- * @author Egor Vasyakin <e.vasyakin@itevas.ru>
+ * @author Egor Vasyakin <egor@evas-php.com>
  * @since 1.0
  */
 class Cookie extends AbstractStorage
