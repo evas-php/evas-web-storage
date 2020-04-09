@@ -86,7 +86,7 @@ class Cookie extends AbstractStorage
      * @param string
      * @return self
      */
-    public function setHost(string $host)
+    public function withHost(string $host)
     {
         $this->host = $host;
         return $this;
@@ -97,7 +97,7 @@ class Cookie extends AbstractStorage
      * @param string
      * @return self
      */
-    public function setPath(string $path)
+    public function withPath(string $path)
     {
         $this->path = $path;
         return $this;
