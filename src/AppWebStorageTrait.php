@@ -20,7 +20,7 @@ if (!defined('EVAS_SESSION_CLASS')) define('EVAS_SESSION_CLASS', Session::class)
  * @author Egor Vasyakin <egor@evas-php.com>
  * @since 1.0
  */
-trait AppWebStoreTrait
+trait AppWebStorageTrait
 {
     /**
      * @var string имя класса cookie
