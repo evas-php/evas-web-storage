@@ -4,7 +4,7 @@
  */
 namespace Evas\Web\Storage;
 
-use Evas\Base\PhpHelper;
+use Evas\Base\Helpers\PhpHelper;
 
 /**
  * Абстрактный класс хранилища.
