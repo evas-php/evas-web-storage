@@ -9,7 +9,7 @@ use Evas\Web\Storage\Cookie;
 use Evas\Web\Storage\Session;
 
 /**
- * Константы для свойств.
+ * Константы для свойств трейта.
  */
 if (!defined('EVAS_COOKIE_CLASS')) define('EVAS_COOKIE_CLASS', Cookie::class);
 if (!defined('EVAS_SESSION_CLASS')) define('EVAS_SESSION_CLASS', Session::class);
@@ -23,33 +23,13 @@ if (!defined('EVAS_SESSION_CLASS')) define('EVAS_SESSION_CLASS', Session::class)
 trait AppWebStorageTrait
 {
     /**
-     * @var string имя класса cookie
-     */
-    protected $cookieClass = EVAS_COOKIE_CLASS;
-
-    /**
-     * @var string имя класса session
-     */
-    protected $sessionClass = EVAS_SESSION_CLASS;
-
-    /**
-     * @var Cookie объект cookie
-     */
-    protected $cookie;
-
-    /**
-     * @var Session объект session
-     */
-    protected $session;
-
-    /**
      * Установка имени класса cookie.
      * @param string
      * @return self
      */
     public static function setCookieClass(string $cookieClass)
     {
-        return static::instanceSet('cookieClass', $cookieClass);
+        return static::set('cookieClass', $cookieClass);
     }
 
     /**
@@ -59,37 +39,63 @@ trait AppWebStorageTrait
      */
     public static function setSessionClass(string $sessionClass)
     {
-        return static::instanceSet('sessionClass', $sessionClass);
+        return static::set('sessionClass', $sessionClass);
+    }
+
+    /**
+     * Получение имени класса cookie.
+     * @param string
+     * @return self
+     */
+    public static function getCookieClass(): string
+    {
+        if (!static::has('cookieClass')) {
+            static::set('cookieClass', EVAS_COOKIE_CLASS);
+        }
+        return static::get('cookieClass');
+    }
+
+    /**
+     * Получение имени класса session.
+     * @param string
+     * @return self
+     */
+    public static function getSessionClass(): string
+    {
+        if (!static::has('sessionClass')) {
+            static::set('sessionClass', EVAS_SESSION_CLASS);
+        }
+        return static::get('sessionClass');
     }
 
 	/**
      * Получение объекта cookie.
      * @return Cookie
      */
-    public static function cookie()
+    public static function cookie(): object
     {
-        if (!static::instanceHas('cookie')) {
-            $cookieClass = static::instanceGet('cookieClass');
+        if (!static::has('cookie')) {
+            $cookieClass = static::getCookieClass();
             $cookie = new $cookieClass;
             if (get_called_class() == WebApp::class) {
                 $cookie->setHost(static::getHost());
             }
-            static::instanceSet('cookie', $cookie);
+            static::set('cookie', $cookie);
         }
-        return static::instanceGet('cookie');
+        return static::get('cookie');
     }
 
     /**
      * Получение объекта session.
      * @return Session
      */
-    public static function session()
+    public static function session(): object
     {
-        if (!static::instanceHas('session')) {
-            $sessionClass = static::instanceGet('sessionClass');
+        if (!static::has('session')) {
+            $sessionClass = static::getSessionClass();
             $session = new $sessionClass;
-            static::instanceSet('session', $session);
+            static::set('session', $session);
         }
-        return static::instanceGet('session');
+        return static::get('session');
     }
 }
