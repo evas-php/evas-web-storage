@@ -1,6 +1,7 @@
 {
     "name": "evas-php/evas-web-storage",
     "description": "Web storage module (Cookie, Session)",
+    "keywords": ["cookie", "session", "evas-php"],
     "type": "library",
     "license": "CC-BY-4.0",
     "authors": [
@@ -9,10 +10,7 @@
             "email": "egor@evas-php.com"
         }
     ],
-    "repositories": [
-        {"type": "vcs", "url": "https://github.com/evas-php/evas-base"}
-    ],
     "require": {
-        "evas-php/evas-base": "dev-master"
+        "evas-php/evas-base": "*"
     }
 }
