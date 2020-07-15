@@ -1,6 +1,6 @@
 <?php
 /**
- * @package evas-php/evas-web-storage
+ * @package evas-php\evas-web-storage
  */
 namespace Evas\Web\Storage;
 
